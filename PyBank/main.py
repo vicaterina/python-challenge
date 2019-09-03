@@ -1,4 +1,11 @@
-#Read in file /Resources/budget_data.csv
+#Read in file budget_data.csv
+import csv
+csvpath="budget_data.csv"
+
+with open(csvpath, newline="") as csvfile:
+    csvreader=csv.reader(csvfile, delimiter=",")
+    
+    print(csvreader)
 
 #Calculate the total months included in the dataset
 
