@@ -34,8 +34,6 @@ for i in df["Profit/Losses"]:
     b.append(i)
 del a[0]
 
-#print("_________________")
-
 for i in range(len(a)):
     #print(i)
     #print(a[i])
@@ -54,16 +52,11 @@ print("Average Change: $" +str(average_change))
 max_loc=(c.index(max(c)))+1
 print('Greatest Increase in Profits: '+df["Date"].values[max_loc] +"  ($"+str(max(c))+")")
 
-
-
-
-
-
 #Calculate and Print the greatest decrease in losses (date and amount) over the entire period
 min_loc=(c.index(min(c)))+1
 print('Greatest Decrease in Profits: '+df["Date"].values[min_loc] +"  ($"+str(min(c))+")")
-#Export the results (print statements) to a text file
 
+#Export the results (print statements) to a text file
 file=open("PyBank.txt","w")
 file.write("Financial Analysis")
 file.write("\n")
