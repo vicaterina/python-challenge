@@ -3,17 +3,20 @@ import pandas as pd
 a=[]
 b=[]
 c=[]
-tick=0
 amount=0
 change=0
 total_change=0
+
+#load csv file from local Git clone
 data=pd.read_csv("~/GitHub/python-challenge/PyBank/budget_data.csv")
 
-
+#convert to dataframe
 df=pd.DataFrame(data)
+
+#transform "Profit/Losses" column to integer
 df['Profit/Losses']=df['Profit/Losses'].astype(int)
 
-#Structure the text display
+#Format the text report 
 print("Financial Analysis")
 print("______________________________________")
 
@@ -22,12 +25,10 @@ tot_months = len(data)
 print('Total Months: ', tot_months)
 
 #Calculate and Print the net total Profit/Losses over the entire period (dataset)
-
 total=df['Profit/Losses'].sum()
 print('Total: $',total)
 
 #Calculate and Print the average of the changes in "Profit/Losses" over the entire period (dataset)
-
 for i in df["Profit/Losses"]:
     #print(i)
     a.append(i)
