@@ -1,6 +1,12 @@
 #PyPoll Homework Assignment 3 / NU DataBootCamp / Vic Caterina
 
+import pandas as pd
 
+#Read in election.data.csv
+data=pd.read_csv("~/GitHub/python-challenge/PyPoll/election_data.csv")
+
+#Create a dataframe 
+df=pd.DataFrame(data)
 
 #Calculate the toal number of votes cast
 
