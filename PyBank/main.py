@@ -46,7 +46,7 @@ for i in range(len(a)):
     #print("Monthly change " +str(change))
     total_change=total_change+change
 
-print("Total change " +str(total_change))
+#print("Total change " +str(total_change))
 average_change=round(total_change/len(a),2)
 print("Average Change: $" +str(average_change))
 
@@ -63,3 +63,21 @@ print('Greatest Increase in Profits: '+df["Date"].values[max_loc] +"  ($"+str(ma
 min_loc=(c.index(min(c)))+1
 print('Greatest Decrease in Profits: '+df["Date"].values[min_loc] +"  ($"+str(min(c))+")")
 #Export the results (print statements) to a text file
+
+file=open("PyBank.txt","w")
+file.write("Financial Analysis")
+file.write("\n")
+file.write("______________________________________")
+file.write("\n")
+file.write('Total Months: '+ str(tot_months))
+file.write("\n")
+file.write('Total: $'+str(total))
+file.write("\n")
+#file.write("Total change " +str(total_change))
+#file.write("\n")
+file.write("Average Change: $" +str(average_change))
+file.write("\n")
+file.write('Greatest Increase in Profits: '+df["Date"].values[max_loc] +"  ($"+str(max(c))+")")
+file.write("\n")
+file.write('Greatest Decrease in Profits: '+df["Date"].values[min_loc] +"  ($"+str(min(c))+")")
+file.close()
