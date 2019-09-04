@@ -45,13 +45,16 @@ frames=[candidate_df, pct_vote_df]
 final_df=pd.concat([candidate_df, pct_vote_df],axis=1)
 final_df.index.names=["Candidate"]
 
-final_df.rename(columns={'Candidate':""}, inplace=True)
+final_df.rename(columns={'Candidate':"Votes"}, inplace=True)
 print(final_df)
 print("__________________________________")
 print("\n")
 #The winner of the election based on popular vote
 print("Winner: ")
 print("__________________________________")
+
+
+
 #Export the results (print statements) to a text file
 file=open("PyPoll.txt","w")
 file.write("ELECTION RESULTS!")
@@ -67,4 +70,5 @@ file.write("\n")
 file.write("______________________________________")
 file.write("\n")
 file.write("Winner: ")
+file.write("______________________________________")
 file.close()
