@@ -3,7 +3,7 @@
 import pandas as pd
 candidate_votes=0
 #Read in election.data.csv
-data=pd.read_csv("~/GitHub/python-challenge/PyPoll/election_data.csv")
+data=pd.read_csv("~/Documents/GitHub/python-challenge/PyPoll/election_data.csv")
 
 #Create a dataframe 
 df=pd.DataFrame(data)
@@ -25,7 +25,7 @@ print("__________________________________")
 #Total number of votes each candidate won
 
 candidate_votes=df["Candidate"].value_counts()
-print(candidate_votes)
+#print(candidate_votes)
 
 #create 2nd dataframe
 candidate_df=pd.DataFrame(candidate_votes)
@@ -38,13 +38,38 @@ for candidate in candidate_df["Candidate"]:
     pct_vote=(df["Candidate"].value_counts()/total_votes*100)
 
 pct_vote_df=pd.DataFrame(pct_vote)
-print(pct_vote_df)
+#print(pct_vote_df)
 
 frames=[candidate_df, pct_vote_df]
 
 final_df=pd.concat([candidate_df, pct_vote_df],axis=1)
 final_df.index.names=["Candidate"]
 
-final_df.rename(columns={'Candidate':"",'Candidate':""}, inplace=True)
-final_df
+final_df.rename(columns={'Candidate':"Votes"}, inplace=True)
+print(final_df)
+print("__________________________________")
+print("\n")
 #The winner of the election based on popular vote
+print("Winner: ")
+print("__________________________________")
+
+
+
+#Export the results (print statements) to a text file
+file=open("PyPoll.txt","w")
+file.write("ELECTION RESULTS!")
+file.write("\n")
+file.write("______________________________________")
+file.write("\n")
+file.write('Total Votes Cast: '+ str(total_votes))
+file.write("\n")
+file.write("______________________________________")
+file.write("\n")
+file.write(str(final_df))
+file.write("\n")
+file.write("______________________________________")
+file.write("\n")
+file.write("Winner: "+str(final_df[0:1]))
+file.write("\n")
+file.write("______________________________________")
+file.close()

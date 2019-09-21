@@ -11,7 +11,7 @@ change=0
 total_change=0
 
 #load csv file from local Git clone
-data=pd.read_csv("~/GitHub/python-challenge/PyBank/budget_data.csv")
+data=pd.read_csv("~/Documents/GitHub/python-challenge/PyBank/budget_data.csv")
 
 #convert to dataframe
 df=pd.DataFrame(data)
